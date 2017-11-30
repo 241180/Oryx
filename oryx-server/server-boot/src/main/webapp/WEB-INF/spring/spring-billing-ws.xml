@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:sws="http://www.springframework.org/schema/web-services"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+							http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+							http://www.springframework.org/schema/web-services
+							http://www.springframework.org/schema/web-services/web-services-2.0.xsd
+							http://www.springframework.org/schema/context
+							http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+
+    <context:component-scan base-package="com.oryx.remote.service.entry"/>
+    <sws:annotation-driven/>
+
+    <!-- BILLING -->
+    <bean id="BillService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
+        <property name="schemaCollection">
+            <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
+                <property name="inline" value="true"/>
+                <property name="xsds">
+                    <list>
+                        <value>schemas/model/enum.xsd</value>
+                        <value>schemas/model/bu_billing_model.xsd</value>
+                        <value>schemas/model/operation.xsd</value>
+                        <value>schemas/operation/crud/bu/billing/CrudOperationBill.xsd</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+        <property name="portTypeName" value="BillService"/>
+        <property name="serviceName" value="BillServices"/>
+        <property name="locationUri" value="/endpoint"/>
+    </bean>
+
+    <bean id="InstanceService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
+        <property name="schemaCollection">
+            <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
+                <property name="inline" value="true"/>
+                <property name="xsds">
+                    <list>
+                        <value>schemas/model/enum.xsd</value>
+                        <value>schemas/model/bu_billing_model.xsd</value>
+                        <value>schemas/model/operation.xsd</value>
+                        <value>schemas/operation/crud/bu/billing/CrudOperationInstance.xsd</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+        <property name="portTypeName" value="InstanceService"/>
+        <property name="serviceName" value="InstanceServices"/>
+        <property name="locationUri" value="/endpoint"/>
+    </bean>
+
+    <bean id="BillItemService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
+        <property name="schemaCollection">
+            <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
+                <property name="inline" value="true"/>
+                <property name="xsds">
+                    <list>
+                        <value>schemas/model/enum.xsd</value>
+                        <value>schemas/model/bu_billing_model.xsd</value>
+                        <value>schemas/model/operation.xsd</value>
+                        <value>schemas/operation/crud/bu/billing/CrudOperationBillItem.xsd</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+        <property name="portTypeName" value="BillItemService"/>
+        <property name="serviceName" value="BillItemServices"/>
+        <property name="locationUri" value="/endpoint"/>
+    </bean>
+
+    <bean id="AccountService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
+        <property name="schemaCollection">
+            <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
+                <property name="inline" value="true"/>
+                <property name="xsds">
+                    <list>
+                        <value>schemas/model/enum.xsd</value>
+                        <value>schemas/model/bu_billing_model.xsd</value>
+                        <value>schemas/model/operation.xsd</value>
+                        <value>schemas/operation/crud/bu/billing/CrudOperationAccount.xsd</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+        <property name="portTypeName" value="AccountService"/>
+        <property name="serviceName" value="AccountServices"/>
+        <property name="locationUri" value="/endpoint"/>
+    </bean>
+
+</beans>

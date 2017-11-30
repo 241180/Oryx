@@ -1,0 +1,10 @@
+// Import all the mixins for this theme
+
+
+@import "addons.scss";
+
+
+.valo{
+  // Output the actual theme selectors
+  @include addons;
+}

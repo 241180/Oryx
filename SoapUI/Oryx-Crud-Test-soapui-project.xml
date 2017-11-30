@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project xmlns:con="http://eviware.com/soapui/config" id="94f35074-ef83-4407-a7e7-316ad5f6bb51"
+                    activeEnvironment="Default"
+                    name="Oryx-Crud-Test" resourceRoot="" soapui-version="5.2.1" abortOnError="false"
+                    runType="SEQUENTIAL">
+    <con:settings/>
+    <con:interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="con:WsdlInterface"
+                   id="129bfbc5-e61b-471a-b288-2acd9805cf0c"
+                   wsaVersion="NONE" name="PersonServiceSoap11"
+                   type="wsdl" bindingName="{http://enum.element.webservice.remote.oryx.com}PersonServiceSoap11"
+                   soapVersion="1_1" anonymous="optional"
+                   definition="http://localhost:8780/oryx/PersonService.wsdl">
+        <con:settings/>
+        <con:definitionCache type="TEXT" rootPart="http://localhost:8780/oryx/PersonService.wsdl">
+            <con:part>
+                <con:url>http://localhost:8780/oryx/PersonService.wsdl</con:url>
+                <con:content><![CDATA[<wsdl:definitions targetNamespace="http://enum.element.webservice.remote.oryx.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch0="http://enum.element.webservice.remote.oryx.com" xmlns:sch1="http://model.element.webservice.remote.oryx.com" xmlns:sch2="http://operation.element.webservice.remote.oryx.com" xmlns:sch3="http://com/oryx/remote/webservices/service/personservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://enum.element.webservice.remote.oryx.com">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://enum.element.webservice.remote.oryx.com" xmlns="http://enum.element.webservice.remote.oryx.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:simpleType name="XmlEnumPersonStatus">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Inactive"/>
+          <xs:enumeration value="Active"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="XmlEnumRole">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="ADMIN"/>
+          <xs:enumeration value="ROLE_USER"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="XmlEnumObjectType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="CONTACT"/>
+          <xs:enumeration value="PERSON"/>
+          <xs:enumeration value="USER"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="XmlEnumServiceOperation">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="CREATE"/>
+          <xs:enumeration value="UPDATE"/>
+          <xs:enumeration value="DELETE"/>
+          <xs:enumeration value="FETCH_ALL"/>
+          <xs:enumeration value="FETCH_BY_ID"/>
+          <xs:enumeration value="FETCH_BY_CRITERIA"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="XmlEnumErrorCode">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="OBJECT_DUPLICATED"/>
+          <xs:enumeration value="UNIQUE_CONSTRAINT_VIOLATED"/>
+          <xs:enumeration value="OBJECT_NOT_FOUND"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://model.element.webservice.remote.oryx.com" xmlns:enum="http://enum.element.webservice.remote.oryx.com" xmlns:model="http://model.element.webservice.remote.oryx.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://enum.element.webservice.remote.oryx.com"/>
+      <xs:complexType name="XmlContact">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:int"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="phoneNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="email" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="XmlPerson">
+        <xs:annotations>
+          <xs:documentation>Created by 241180 on 09/01/2017.</xs:documentation>
+        </xs:annotations>
+        <xs:complexContent>
+          <xs:extension base="model:XmlCancelableAndTracable">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="personName" type="xs:string"/>
+              <xs:element name="personBalance" type="xs:double"/>
+              <xs:element minOccurs="0" name="personStatus" type="enum:XmlEnumPersonStatus"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType abstract="true" name="XmlCancelableAndTracable">
+        <xs:complexContent>
+          <xs:extension base="model:XmlTracable">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="checkCancel" type="xs:boolean"/>
+              <xs:element minOccurs="0" name="cancelBy" type="xs:string"/>
+              <xs:element minOccurs="0" name="cancelDate" type="xs:dateTime"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType abstract="true" name="XmlTracable">
+        <xs:complexContent>
+          <xs:extension base="model:XmlIdentifiable">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="createdBy" type="xs:string"/>
+              <xs:element minOccurs="0" name="creationDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="updatedBy" type="xs:string"/>
+              <xs:element minOccurs="0" name="lastUpdateDate" type="xs:dateTime"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType abstract="true" name="XmlIdentifiable">
+        <xs:complexContent>
+          <xs:extension base="model:XmlAbstractEntity">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="id" type="xs:int"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType abstract="true" name="XmlAbstractEntity">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="XmlUser">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:int"/>
+          <xs:element minOccurs="0" name="email" type="xs:string"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="enabled" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="role" type="enum:XmlEnumRole"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://operation.element.webservice.remote.oryx.com" xmlns:enum="http://enum.element.webservice.remote.oryx.com" xmlns:operation="http://operation.element.webservice.remote.oryx.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://enum.element.webservice.remote.oryx.com"/>
+      <xs:complexType name="XmlOperationDescIn">
+        <xs:complexContent>
+          <xs:extension base="operation:AbstractXmlServiceRequestDesc">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="objectType" type="enum:XmlEnumObjectType"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType abstract="true" name="AbstractXmlServiceRequestDesc">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="operation" type="enum:XmlEnumServiceOperation"/>
+          <xs:element minOccurs="0" name="msg" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="XmlOperationDescOut">
+        <xs:complexContent>
+          <xs:extension base="operation:AbstractXmlServiceResponseDesc">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="objectType" type="enum:XmlEnumObjectType"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType abstract="true" name="AbstractXmlServiceResponseDesc">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="operation" type="enum:XmlEnumServiceOperation"/>
+          <xs:element minOccurs="0" name="errCode" type="enum:XmlEnumErrorCode"/>
+          <xs:element minOccurs="0" name="msg" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://com/oryx/remote/webservices/service/personservice" xmlns="http://com/oryx/remote/webservices/service/personservice" xmlns:model="http://model.element.webservice.remote.oryx.com" xmlns:operation="http://operation.element.webservice.remote.oryx.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://operation.element.webservice.remote.oryx.com"/>
+      <xsd:import namespace="http://model.element.webservice.remote.oryx.com"/>
+      <xsd:element name="crudRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="operation:XmlOperationDescIn"/>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="Object" type="model:XmlPerson"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="crudResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" type="operation:XmlOperationDescOut"/>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="Object" type="model:XmlPerson"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="crudRequest">
+    <wsdl:part element="sch3:crudRequest" name="crudRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="crudResponse">
+    <wsdl:part element="sch3:crudResponse" name="crudResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="PersonService">
+    <wsdl:operation name="crud">
+      <wsdl:input message="tns:crudRequest" name="crudRequest"></wsdl:input>
+      <wsdl:output message="tns:crudResponse" name="crudResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PersonServiceSoap11" type="tns:PersonService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="crud">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="crudRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="crudResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PersonServices">
+    <wsdl:port binding="tns:PersonServiceSoap11" name="PersonServiceSoap11">
+      <soap:address location="http://localhost:8780/oryx/endpoint"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content>
+                <con:type>http://schemas.xmlsoap.org/wsdl/</con:type>
+            </con:part>
+        </con:definitionCache>
+        <con:endpoints>
+            <con:endpoint>http://localhost:8780/oryx/endpoint</con:endpoint>
+        </con:endpoints>
+        <con:operation id="37eea9c9-6f81-49da-bee5-ad90cb0a4272" isOneWay="false" action="" name="crud"
+                       bindingOperationName="crud" type="Request-Response" outputName="crudResponse"
+                       inputName="crudRequest" receivesAttachments="false" sendsAttachments="false"
+                       anonymous="optional">
+            <con:settings/>
+            <con:call id="b1a3b738-ffc8-4780-ae75-a57eef1d097a" name="FETCH_ALL">
+                <con:settings>
+                    <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                    </con:setting>
+                </con:settings>
+                <con:encoding>UTF-8</con:encoding>
+                <con:endpoint>http://localhost:8780/oryx/endpoint</con:endpoint>
+                <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:per="http://com/oryx/remote/webservices/service/personservice">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <per:crudRequest>\r
+         <per:request>\r
+            <!--Optional:-->\r
+            <operation>FETCH_ALL</operation>\r
+            <!--Optional:-->\r
+            <msg>?</msg>\r
+            <!--Optional:-->\r
+            <objectType>PERSON</objectType>\r
+         </per:request>\r
+         <!--Zero or more repetitions:-->\r
+         <per:Object>\r
+            <!--Optional:-->\r
+            <id>?</id>\r
+            <!--Optional:-->\r
+            <createdBy>?</createdBy>\r
+            <!--Optional:-->\r
+            <creationDate>?</creationDate>\r
+            <!--Optional:-->\r
+            <updatedBy>?</updatedBy>\r
+            <!--Optional:-->\r
+            <lastUpdateDate>?</lastUpdateDate>\r
+            <!--Optional:-->\r
+            <checkCancel>?</checkCancel>\r
+            <!--Optional:-->\r
+            <cancelBy>?</cancelBy>\r
+            <!--Optional:-->\r
+            <cancelDate>?</cancelDate>\r
+            <!--Optional:-->\r
+            <personName>?</personName>\r
+            <personBalance>?</personBalance>\r
+            <!--Optional:-->\r
+            <personStatus>?</personStatus>\r
+         </per:Object>\r
+      </per:crudRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+                <con:credentials>
+                    <con:authType>No Authorization</con:authType>
+                </con:credentials>
+                <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                <con:jmsPropertyConfig/>
+                <con:wsaConfig mustUnderstand="NONE" version="200508"
+                               action="http://enum.element.webservice.remote.oryx.com/PersonService/crudRequest"/>
+                <con:wsrmConfig version="1.2"/>
+            </con:call>
+            <con:call id="6c70da6a-e5b9-413e-86e5-5fd3e6578cea" name="CREATE">
+                <con:settings>
+                    <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                    </con:setting>
+                </con:settings>
+                <con:encoding>UTF-8</con:encoding>
+                <con:endpoint>http://localhost:8780/oryx/endpoint</con:endpoint>
+                <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:per="http://com/oryx/remote/webservices/service/personservice">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <per:crudRequest>\r
+         <per:request>\r
+            <!--Optional:-->\r
+            <operation>CREATE</operation>\r
+            <!--Optional:-->\r
+            <msg>?</msg>\r
+            <!--Optional:-->\r
+            <objectType>PERSON</objectType>\r
+         </per:request>\r
+         <!--Zero or more repetitions:-->\r
+         <per:Object>\r
+            <!--Optional:-->\r
+            <id>?</id>\r
+            <!--Optional:-->\r
+            <createdBy>Lamia</createdBy>\r
+            <!--Optional:-->\r
+            <creationDate>2008-10-26T21:32:52.12679</creationDate>\r
+            <!--Optional:-->\r
+            <updatedBy>Mbarki</updatedBy>\r
+            <!--Optional:-->\r
+            <lastUpdateDate>2008-10-26T21:32:52.12679</lastUpdateDate>\r
+            <!--Optional:-->\r
+            <checkCancel>false</checkCancel>\r
+            <!--Optional:-->\r
+            <cancelBy></cancelBy>\r
+            <!--Optional:-->\r
+            <cancelDate>?</cancelDate>\r
+            <!--Optional:-->\r
+            <personName>Anna</personName>\r
+            <personBalance>145</personBalance>\r
+            <!--Optional:-->\r
+            <personStatus>Active</personStatus>\r
+         </per:Object>\r
+      </per:crudRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+                <con:credentials>
+                    <con:authType>No Authorization</con:authType>
+                </con:credentials>
+                <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                <con:jmsPropertyConfig/>
+                <con:wsaConfig mustUnderstand="NONE" version="200508"
+                               action="http://enum.element.webservice.remote.oryx.com/PersonService/crudRequest"/>
+                <con:wsrmConfig version="1.2"/>
+            </con:call>
+            <con:call id="a095edcd-5441-4899-9417-41a5e5aaca8b" name="UPDATE">
+                <con:settings>
+                    <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                    </con:setting>
+                </con:settings>
+                <con:encoding>UTF-8</con:encoding>
+                <con:endpoint>http://localhost:8780/oryx/endpoint</con:endpoint>
+                <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:per="http://com/oryx/remote/webservices/service/personservice">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <per:crudRequest>\r
+         <per:request>\r
+            <!--Optional:-->\r
+            <operation>UPDATE</operation>\r
+            <!--Optional:-->\r
+            <msg>?</msg>\r
+            <!--Optional:-->\r
+            <objectType>PERSON</objectType>\r
+         </per:request>\r
+         <!--Zero or more repetitions:-->\r
+         <per:Object>\r
+            <!--Optional:-->\r
+            <id>3</id>\r
+            <!--Optional:-->\r
+            <createdBy>?</createdBy>\r
+            <!--Optional:-->\r
+            <creationDate>2008-10-26T21:32:52.12679</creationDate>\r
+            <!--Optional:-->\r
+            <updatedBy>?</updatedBy>\r
+            <!--Optional:-->\r
+            <lastUpdateDate>2008-10-26T21:32:52.12679</lastUpdateDate>\r
+            <!--Optional:-->\r
+            <checkCancel>true</checkCancel>\r
+            <!--Optional:-->\r
+            <cancelBy>?</cancelBy>\r
+            <!--Optional:-->\r
+            <cancelDate>?</cancelDate>\r
+            <!--Optional:-->\r
+            <personName>Louay</personName>\r
+            <personBalance>147</personBalance>\r
+            <!--Optional:-->\r
+            <personStatus>?</personStatus>\r
+         </per:Object>\r
+      </per:crudRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+                <con:credentials>
+                    <con:authType>No Authorization</con:authType>
+                </con:credentials>
+                <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                <con:jmsPropertyConfig/>
+                <con:wsaConfig mustUnderstand="NONE" version="200508"
+                               action="http://enum.element.webservice.remote.oryx.com/PersonService/crudRequest"/>
+                <con:wsrmConfig version="1.2"/>
+            </con:call>
+        </con:operation>
+    </con:interface>
+    <con:properties/>
+    <con:wssContainer/>
+    <con:oAuth2ProfileContainer/>
+</con:soapui-project>

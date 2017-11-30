@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:model="http://model.element.webservice.remote.oryx.com" targetNamespace="http://model.element.webservice.remote.oryx.com" version="1.0">
+
+  <xs:complexType abstract="true" name="XmlCancelableAndTracable">
+    <xs:complexContent>
+      <xs:extension base="model:XmlTracable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="checkCancel" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="canceledBy" type="xs:string"/>
+          <xs:element minOccurs="0" name="cancelDate" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType abstract="true" name="XmlTracable">
+    <xs:complexContent>
+      <xs:extension base="model:XmlDomainCapable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createdBy" type="xs:string"/>
+          <xs:element minOccurs="0" name="creationDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="updatedBy" type="xs:string"/>
+          <xs:element minOccurs="0" name="lastUpdateDate" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType abstract="true" name="XmlDomainCapable">
+    <xs:complexContent>
+      <xs:extension base="model:XmlIdentifiable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="domainScope" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType abstract="true" name="XmlIdentifiable">
+    <xs:complexContent>
+      <xs:extension base="model:XmlAbstractEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:string"/>
+          <xs:element minOccurs="0" name="version" type="xs:int"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType abstract="true" name="XmlAbstractEntity">
+    <xs:sequence/>
+  </xs:complexType>
+</xs:schema>

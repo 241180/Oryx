@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns="http://com/oryx/remote/webservices/service/errormessageservice" xmlns:operation="http://operation.element.webservice.remote.oryx.com" xmlns:system_msg_model="http://msg.system.model.element.webservice.remote.oryx.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://com/oryx/remote/webservices/service/errormessageservice">
+    <xsd:import namespace="http://operation.element.webservice.remote.oryx.com" schemaLocation="../../../../model/operation.xsd"/>
+    <xsd:import namespace="http://msg.system.model.element.webservice.remote.oryx.com" schemaLocation="../../../../model/system_msg_model.xsd"/>
+    <xsd:element name="crudRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="auth" type="operation:XmlAuthentification"/>
+                <xsd:element name="request" type="operation:XmlOperationDescIn"/>
+                <xsd:element maxOccurs="unbounded" minOccurs="0" name="Object" type="system_msg_model:XmlErrorMessage"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="crudResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="response" type="operation:XmlOperationDescOut"/>
+                <xsd:element maxOccurs="unbounded" minOccurs="0" name="Object" type="system_msg_model:XmlErrorMessage"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

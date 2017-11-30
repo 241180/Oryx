@@ -1,0 +1,78 @@
+- Adding new CRUD
+1-  Server side
+    1.1 create the entity
+        go to the specific package : Oryx\OryxServer\serverBoot\src\main\java\com\oryx\core\model\bu\...
+        create a new business package under "bu" package if needed
+        create your Toto entity (copy from existing one and replace names)
+        change newXmlInstance to return the Toto entity instead of XmlToto for the moment
+    1.2 create the ExchangeObjFactory
+        go to the specific package : \Oryx\OryxServer\serverBoot\src\main\java\com\oryx\remote\service\entry\factory\exchangeObject\crud\bu\...
+        create a new business package under "bu" package if needed
+        create your TotoExchangeObjFactory (copy from existing one and replace names)
+    1.3 create crud request/response operations
+        go to the specific folder : \Oryx\OryxServer\serverBoot\src\main\webapp\schemas\operation\crud\bu
+        create a new business package under "bu" package if needed
+        create your CrudOperationToto xsd file (copy from existing one and replace names)
+    1.4 add xml crud entity
+        go to the specific folder : \Oryx\OryxServer\serverBoot\src\main\webapp\schemas\model
+        create a new business xsd file if needed (copy from existing one and replace names)
+        add xsd element
+            For example :
+            <xs:complexType name="XmlToto">
+                <xs:annotation>
+                  <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
+                </xs:annotation>
+                <xs:complexContent>
+                  <xs:extension base="model:XmlCancelableAndTracable">
+                    <xs:sequence>
+                      <xs:element minOccurs="0" name="accountCode" type="xs:string"/>
+                      <xs:element minOccurs="0" name="activationDate" type="xs:dateTime"/>
+                      <xs:element minOccurs="0" name="deactivationDate" type="xs:dateTime"/>
+                      <xs:element minOccurs="0" name="ammount" type="xs:double"/>
+                    </xs:sequence>
+                  </xs:extension>
+                </xs:complexContent>
+              </xs:complexType>
+    1.5 add Toto and XmlToto factory methods under calsse
+        \Oryx\OryxServer\serverBoot\src\main\java\com\oryx\remote\service\entry\factory\model\ModelFactory.java
+        \Oryx\OryxServer\serverBoot\src\main\java\com\oryx\remote\service\entry\factory\exchangeObject\crud\EntityFactory.java
+    1.6 create Endpoint service class
+        go to the specific package : \Oryx\OryxServer\serverBoot\src\main\java\com\oryx\remote\service\entry\endpoint\crud\bu
+        create a new business package under "bu" package if needed
+        add service target name space in interface \Oryx\OryxServer\serverBoot\src\main\java\com\oryx\remote\service\entry\endpoint\crud\namespace\TargetNameSpace.java
+        create TotoServiceEndpoint (copy from existing one and replace names)
+    1.7 create service binder
+        go to the specific package : \Oryx\OryxServer\serverBoot\src\main\java\com\oryx\remote\service\entry\binder\bu
+        create business delegate binder class if needed (copy from existing one and replace names)
+        add TotoServiceDelegate property (Autowired)
+    1.8 configure crud service
+        go to the specific folder : D:\Oryx\OryxServer\serverBoot\src\main\webapp\WEB-INF\spring
+        create a new business spring conf file if needed
+        register business spring conf file in spring-ws.xml if needed
+        add Toto service bean
+        For example:
+            <bean id="TotoService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
+                <property name="schemaCollection">
+                    <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
+                        <property name="inline" value="true"/>
+                        <property name="xsds">
+                            <list>
+                                <value>schemas/model/enum.xsd</value>
+                                <value>schemas/model/bu_sale_model.xsd</value>
+                                <value>schemas/model/operation.xsd</value>
+                                <value>schemas/operation/crud/bu/sale/CrudOperationToto.xsd</value>
+                            </list>
+                        </property>
+                    </bean>
+                </property>
+                <property name="portTypeName" value="TotoService"/>
+                <property name="serviceName" value="TotoServices"/>
+                <property name="locationUri" value="/endpoint"/>
+            </bean>
+    1.9 compile serverBoot module
+    1.10    change newXmlInstance to return the XmlToto entity instead of Toto
+    1.11    compile serverBoot module
+    1.12    testing crud server service
+        run server (tomcat:run)
+        call url : http://localhost:8680/oryx-server/TotoService.wsdl
+        

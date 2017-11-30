@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.oryx.apps</groupId>
+        <artifactId>root</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>${parent.groupId}</groupId>
+    <artifactId>oryx-migration</artifactId>
+    <version>${project.parent.version}</version>
+    <packaging>jar</packaging>
+    <name>${owner}: 1200-${artifactId}${nameSuffix}</name>
+
+    <properties>
+        <flyway.version>4.0.3</flyway.version>
+        <postgres.driver.version>9.1-901-1.jdbc4</postgres.driver.version>
+        <mysql.driver.version>5.1.6</mysql.driver.version>
+        <oracle.driver.version>11.2.0.3</oracle.driver.version>
+        <database.url>jdbc:mysql://localhost:3306/oryx</database.url>
+        <database.user>root</database.user>
+        <database.password>root</database.password>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>${flyway.version}</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>${flyway.version}</version>
+                <configuration>
+                    <sqlMigrationSeparator>__</sqlMigrationSeparator>
+                    <locations>
+                        <location>filesystem:src/main/resources/oryx/migrations</location>
+                    </locations>
+                    <url>${database.url}</url>
+                    <user>${database.user}</user>
+                    <password>${database.password}</password>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>postgresql</groupId>
+                        <artifactId>postgresql</artifactId>
+                        <version>${postgres.driver.version}</version>
+                    </dependency>
+                    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>${mysql.driver.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+</project>

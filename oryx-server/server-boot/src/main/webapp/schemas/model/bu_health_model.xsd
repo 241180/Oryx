@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:enum="http://enum.element.webservice.remote.oryx.com" xmlns:model="http://model.element.webservice.remote.oryx.com" xmlns:system_ref_model="http://ref.system.model.element.webservice.remote.oryx.com" targetNamespace="http://health.bu.model.element.webservice.remote.oryx.com" version="1.0">
+
+  <xs:import namespace="http://model.element.webservice.remote.oryx.com" schemaLocation="model.xsd"/>
+
+  <xs:import namespace="http://enum.element.webservice.remote.oryx.com" schemaLocation="enum.xsd"/>
+
+  <xs:import namespace="http://ref.system.model.element.webservice.remote.oryx.com" schemaLocation="system_ref_model.xsd"/>
+
+  <xs:complexType name="XmlHealthCheck">
+    <xs:annotation>
+      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="model:XmlCancelableAndTracable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="healthCheckDateTime" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="XmlPatient">
+    <xs:annotation>
+      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="model:XmlCancelableAndTracable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="patientCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="email" type="xs:string"/>
+          <xs:element minOccurs="0" name="person" type="system_ref_model:XmlPerson"/>
+          <xs:element minOccurs="0" name="personId" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="XmlRdv">
+    <xs:annotation>
+      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="model:XmlCancelableAndTracable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="rdvDateTime" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="duration" type="xs:int"/>
+          <xs:element minOccurs="0" name="status" type="enum:XmlEnumRdvStatus"/>
+          <xs:element minOccurs="0" name="reason" type="xs:string"/>
+          <xs:element minOccurs="0" name="host" type="system_ref_model:XmlPerson"/>
+          <xs:element minOccurs="0" name="hostId" type="xs:string"/>
+          <xs:element minOccurs="0" name="guest" type="system_ref_model:XmlPerson"/>
+          <xs:element minOccurs="0" name="guestId" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

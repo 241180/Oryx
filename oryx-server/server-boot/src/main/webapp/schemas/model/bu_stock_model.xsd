@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bu_sale_model="http://sale.bu.model.element.webservice.remote.oryx.com" xmlns:model="http://model.element.webservice.remote.oryx.com" targetNamespace="http://stock.bu.model.element.webservice.remote.oryx.com" version="1.0">
+
+  <xs:import namespace="http://sale.bu.model.element.webservice.remote.oryx.com" schemaLocation="bu_sale_model.xsd"/>
+
+  <xs:import namespace="http://model.element.webservice.remote.oryx.com" schemaLocation="model.xsd"/>
+
+  <xs:complexType name="XmlProductLot">
+    <xs:annotation>
+      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="model:XmlCancelableAndTracable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="lotCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="lotName" type="xs:string"/>
+          <xs:element minOccurs="0" name="descriptionTextArea" type="xs:string"/>
+          <xs:element minOccurs="0" name="product" type="bu_sale_model:XmlProduct"/>
+          <xs:element minOccurs="0" name="productId" type="xs:string"/>
+          <xs:element minOccurs="0" name="quantity" type="xs:double"/>
+          <xs:element minOccurs="0" name="stockInDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="stockOutDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="expiryDate" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="XmlStockPosition">
+    <xs:annotation>
+      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="model:XmlCancelableAndTracable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="product" type="bu_sale_model:XmlProduct"/>
+          <xs:element minOccurs="0" name="productId" type="xs:string"/>
+          <xs:element minOccurs="0" name="quantity" type="xs:double"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:enum="http://enum.element.webservice.remote.oryx.com" xmlns:model="http://model.element.webservice.remote.oryx.com" targetNamespace="http://msg.system.model.element.webservice.remote.oryx.com" version="1.0">
+
+  <xs:import namespace="http://enum.element.webservice.remote.oryx.com" schemaLocation="enum.xsd"/>
+
+  <xs:import namespace="http://model.element.webservice.remote.oryx.com" schemaLocation="model.xsd"/>
+
+  <xs:complexType name="XmlErrorMessage">
+    <xs:annotation>
+      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="model:XmlCancelableAndTracable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="messageCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="language" type="enum:XmlEnumLanguage"/>
+          <xs:element minOccurs="0" name="meaning" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="XmlTranslation">
+    <xs:annotation>
+      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="model:XmlCancelableAndTracable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="bundleOrigin" type="xs:string"/>
+          <xs:element minOccurs="0" name="language" type="enum:XmlEnumLanguage"/>
+          <xs:element minOccurs="0" name="text" type="xs:string"/>
+          <xs:element minOccurs="0" name="translation" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

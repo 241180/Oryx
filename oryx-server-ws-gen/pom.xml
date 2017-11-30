@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.oryx.apps</groupId>
+        <artifactId>root</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>${parent.groupId}</groupId>
+    <artifactId>oryx-server-ws-gen</artifactId>
+    <version>${project.parent.version}</version>
+    <packaging>jar</packaging>
+    <name>${owner}: 1300-${artifactId}${nameSuffix}</name>
+
+    <description>Oryx Client Server Bridge</description>
+    <url></url>
+
+    <modules>
+    </modules>
+
+    <licenses>
+        <license>
+            <name></name>
+            <url></url>
+            <distribution></distribution>
+        </license>
+    </licenses>
+
+    <properties>
+        <wsdlUrl.prefix.local>http://${tomcat.server.host}:${tomcat.server.port}/${oryx.server.name}</wsdlUrl.prefix.local>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>3.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.ws.commons.schema</groupId>
+            <artifactId>XmlSchema</artifactId>
+            <version>1.4.3</version>
+        </dependency>
+
+        <!-- Servlet -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${javax.servlet.api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/jaxb2-maven-plugin -->
+        <dependency>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>jaxb2-maven-plugin</artifactId>
+            <version>${jaxb2.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>${maven.clean.plugin.version}</version>
+                <configuration>
+                    <!--filesets>
+                        <fileset>
+                            <directory>src/main/webapp/VAADIN/widgetsets</directory>
+                        </fileset>
+                        <fileset>
+                            <directory>src/main/webapp/VAADIN/gwt-unitCache</directory>
+                        </fileset>
+                    </filesets-->
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${maven.resources.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <!-- here the phase you need -->
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.basedir}/src/main/java/copied/com/oryx/remote</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}/target/generated-sources/wsimport/com/oryx/remote
+                                    </directory>
+                                    <!--filtering>true</filtering>
+                                    <includes>
+                                        <include>*.xsd</include>
+                                    </includes-->
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+                <configuration>>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${maven.war.plugin.version}</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven.source.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>2.5</version>
+                <executions>
+                    <execution>
+                        <id>xjc</id>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <!-- use 2.2 for Java SE 8 or Java EE 6+ runtime -->
+                            <target>2.2</target>
+
+                            <!--wsdlDirectory>src/mywsdls</wsdlDirectory-->
+                            <!--wsdlFiles>
+                                <wsdlFile></wsdlFile>
+                            </wsdlFiles-->
+
+                            <!--wsdlLocation>${wsdlUrl.prefix}/</wsdlLocation-->
+
+                            <wsdlUrls>
+                                <!-- CRUDS SYSTEM-->
+                                <wsdlUrl>${wsdlUrl.prefix.local}/PersonService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/UserService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/AdressService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/StateService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/ContactService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/CountryService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/ErrorMessageService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/MenuService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/RoleInfoService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/TaskService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/UpgradesService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/UidService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/CodificationService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/FieldProcessParamService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/AnnexService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/TranslationService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/DomainService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/ThirdPartyService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/ParameterService.wsdl</wsdlUrl>
+
+                                <!-- CRUDS HEALTH-->
+                                <wsdlUrl>${wsdlUrl.prefix.local}/RdvService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/HealthCheckService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/PatientService.wsdl</wsdlUrl>
+
+                                <!-- CRUDS BILLING-->
+                                <wsdlUrl>${wsdlUrl.prefix.local}/BillService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/BillItemService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/AccountService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/InstanceService.wsdl</wsdlUrl>
+
+                                <!-- CRUDS SALE-->
+                                <wsdlUrl>${wsdlUrl.prefix.local}/ProductService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/ProductCategoryService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/BrandService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/CartService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/CartItemService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/ShopperService.wsdl</wsdlUrl>
+
+                                <!-- CRUDS STOCK-->
+                                <wsdlUrl>${wsdlUrl.prefix.local}/StockPositionService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/ProductLotService.wsdl</wsdlUrl>
+
+                                <!-- VIEWS -->
+                                <wsdlUrl>${wsdlUrl.prefix.local}/UserViewService.wsdl</wsdlUrl>
+                                <wsdlUrl>${wsdlUrl.prefix.local}/PatientViewService.wsdl</wsdlUrl>
+
+                                <!-- SERVICES -->
+                                <wsdlUrl>${wsdlUrl.prefix.local}/AuthenticationService.wsdl</wsdlUrl>
+                            </wsdlUrls>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

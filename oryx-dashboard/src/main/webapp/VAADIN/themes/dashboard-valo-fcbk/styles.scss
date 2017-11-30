@@ -1,0 +1,11 @@
+// Import all the mixins for this theme
+
+@import "variables";
+@import "addons.scss";
+@import "dashboard";
+
+.dashboard-valo-fcbk {
+  // Output the actual theme selectors
+  @include addons;
+  @include dashboard;
+}

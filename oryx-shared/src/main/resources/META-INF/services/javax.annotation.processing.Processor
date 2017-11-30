@@ -1,0 +1,6 @@
+com.oryx.core.annotation.processor.ParamBuilderProcessor
+com.oryx.core.annotation.processor.GenDataRepositoryProcessor
+com.oryx.core.annotation.processor.GenTypeByTokenProviderProcessor
+com.oryx.core.annotation.processor.GenServiceDelegateProcessor
+com.oryx.core.annotation.processor.GenEntityEnumerationProcessor
+com.oryx.core.annotation.processor.BuilderProcessor

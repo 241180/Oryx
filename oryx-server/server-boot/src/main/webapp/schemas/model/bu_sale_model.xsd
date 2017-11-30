@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bu_sale_model="http://sale.bu.model.element.webservice.remote.oryx.com" xmlns:enum="http://enum.element.webservice.remote.oryx.com" xmlns:model="http://model.element.webservice.remote.oryx.com" xmlns:system_ose_model="http://ose.system.model.element.webservice.remote.oryx.com" xmlns:system_ref_model="http://ref.system.model.element.webservice.remote.oryx.com" targetNamespace="http://sale.bu.model.element.webservice.remote.oryx.com" version="1.0">
+
+  <xs:import namespace="http://model.element.webservice.remote.oryx.com" schemaLocation="model.xsd"/>
+
+  <xs:import namespace="http://enum.element.webservice.remote.oryx.com" schemaLocation="enum.xsd"/>
+
+  <xs:import namespace="http://ref.system.model.element.webservice.remote.oryx.com" schemaLocation="system_ref_model.xsd"/>
+
+  <xs:import namespace="http://ose.system.model.element.webservice.remote.oryx.com" schemaLocation="system_ose_model.xsd"/>
+
+  <xs:complexType name="XmlProduct">
+    <xs:annotation>
+      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="model:XmlCancelableAndTracable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="productCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="productName" type="xs:string"/>
+          <xs:element minOccurs="0" name="descriptionTextArea" type="xs:string"/>
+          <xs:element minOccurs="0" name="category" type="bu_sale_model:XmlProductCategory"/>
+          <xs:element minOccurs="0" name="categoryId" type="xs:string"/>
+          <xs:element minOccurs="0" name="brand" type="bu_sale_model:XmlBrand"/>
+          <xs:element minOccurs="0" name="brandId" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="XmlProductCategory">
+    <xs:annotation>
+      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="model:XmlCancelableAndTracable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="categoryCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="categoryName" type="xs:string"/>
+          <xs:element minOccurs="0" name="descriptionTextArea" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="XmlBrand">
+    <xs:annotation>
+      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="model:XmlCancelableAndTracable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="brandCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="brandName" type="xs:string"/>
+          <xs:element minOccurs="0" name="descriptionTextArea" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="XmlCart">
+    <xs:annotation>
+      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="model:XmlCancelableAndTracable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cartCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="status" type="enum:XmlEnumCartStatus"/>
+          <xs:element minOccurs="0" name="expiryDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="settlementDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="grossAmmount" type="xs:double"/>
+          <xs:element minOccurs="0" name="tax" type="xs:double"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="cartItemSet" nillable="true" type="bu_sale_model:XmlCartItem"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="cartItemIds" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="XmlCartItem">
+    <xs:annotation>
+      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="model:XmlCancelableAndTracable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="product" type="bu_sale_model:XmlProduct"/>
+          <xs:element minOccurs="0" name="productId" type="xs:string"/>
+          <xs:element minOccurs="0" name="quantity" type="xs:double"/>
+          <xs:element minOccurs="0" name="unitPrice" type="xs:double"/>
+          <xs:element minOccurs="0" name="discount" type="xs:double"/>
+          <xs:element minOccurs="0" name="tax" type="xs:double"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="XmlShopper">
+    <xs:annotation>
+      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="model:XmlCancelableAndTracable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="shopperCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="email" type="xs:string"/>
+          <xs:element minOccurs="0" name="person" type="system_ref_model:XmlPerson"/>
+          <xs:element minOccurs="0" name="personId" type="xs:string"/>
+          <xs:element minOccurs="0" name="user" type="system_ose_model:XmlUser"/>
+          <xs:element minOccurs="0" name="userId" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bu_billing_model="http://billing.bu.model.element.webservice.remote.oryx.com" xmlns:bu_sale_model="http://sale.bu.model.element.webservice.remote.oryx.com" xmlns:enum="http://enum.element.webservice.remote.oryx.com" xmlns:model="http://model.element.webservice.remote.oryx.com" targetNamespace="http://billing.bu.model.element.webservice.remote.oryx.com" version="1.0">
+
+  <xs:import namespace="http://model.element.webservice.remote.oryx.com" schemaLocation="model.xsd"/>
+
+  <xs:import namespace="http://enum.element.webservice.remote.oryx.com" schemaLocation="enum.xsd"/>
+
+  <xs:import namespace="http://sale.bu.model.element.webservice.remote.oryx.com" schemaLocation="bu_sale_model.xsd"/>
+
+  <xs:complexType name="XmlAccount">
+    <xs:annotation>
+      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="model:XmlCancelableAndTracable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accountCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="activationDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="deactivationDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="ammount" type="xs:double"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="XmlBill">
+    <xs:annotation>
+      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="model:XmlCancelableAndTracable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="billCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="status" type="enum:XmlEnumBillStatus"/>
+          <xs:element minOccurs="0" name="calculationDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="issueDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="dueDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="settlementDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="grossAmmount" type="xs:double"/>
+          <xs:element minOccurs="0" name="tax" type="xs:double"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="billItemSet" nillable="true" type="bu_billing_model:XmlBillItem"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="billItemIds" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="XmlBillItem">
+    <xs:annotation>
+      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="model:XmlCancelableAndTracable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="product" type="bu_sale_model:XmlProduct"/>
+          <xs:element minOccurs="0" name="productId" type="xs:string"/>
+          <xs:element minOccurs="0" name="quantity" type="xs:double"/>
+          <xs:element minOccurs="0" name="unitPrice" type="xs:double"/>
+          <xs:element minOccurs="0" name="discount" type="xs:double"/>
+          <xs:element minOccurs="0" name="tax" type="xs:double"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="XmlInstance">
+    <xs:annotation>
+      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="model:XmlCancelableAndTracable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="instanceDateTime" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

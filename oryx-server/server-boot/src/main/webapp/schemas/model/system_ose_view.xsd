@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:enum="http://enum.element.webservice.remote.oryx.com" xmlns:system_ref_model="http://ref.system.model.element.webservice.remote.oryx.com" targetNamespace="http://ose.system.view.element.webservice.remote.oryx.com" version="1.0">
+
+  <xs:import namespace="http://enum.element.webservice.remote.oryx.com" schemaLocation="enum.xsd"/>
+
+  <xs:import namespace="http://ref.system.model.element.webservice.remote.oryx.com" schemaLocation="system_ref_model.xsd"/>
+
+  <xs:complexType name="XmlUserView">
+    <xs:annotation>
+      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="userCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="userLogin" type="xs:string"/>
+      <xs:element minOccurs="0" name="userPassword" type="xs:string"/>
+      <xs:element minOccurs="0" name="language" type="enum:XmlEnumLanguage"/>
+      <xs:element minOccurs="0" name="role" type="enum:XmlEnumUserRole"/>
+      <xs:element minOccurs="0" name="status" type="enum:XmlEnumStatus"/>
+      <xs:element minOccurs="0" name="startDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="endDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="defaultUid" type="xs:string"/>
+      <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+      <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+      <xs:element minOccurs="0" name="civility" type="enum:XmlEnumCivility"/>
+      <xs:element minOccurs="0" name="gender" type="enum:XmlEnumGender"/>
+      <xs:element minOccurs="0" name="birthDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="birthCity" type="system_ref_model:XmlState"/>
+      <xs:element minOccurs="0" name="birthCityId" type="xs:string"/>
+      <xs:element minOccurs="0" name="birthCountry" type="system_ref_model:XmlCountry"/>
+      <xs:element minOccurs="0" name="birthCountryId" type="xs:string"/>
+      <xs:element minOccurs="0" name="adressStreet" type="xs:string"/>
+      <xs:element minOccurs="0" name="adressCity" type="system_ref_model:XmlState"/>
+      <xs:element minOccurs="0" name="adressCityId" type="xs:string"/>
+      <xs:element minOccurs="0" name="adressCountry" type="system_ref_model:XmlCountry"/>
+      <xs:element minOccurs="0" name="adressCountryId" type="xs:string"/>
+      <xs:element minOccurs="0" name="phoneNumber_1" type="xs:string"/>
+      <xs:element minOccurs="0" name="phoneNumber_2" type="xs:string"/>
+      <xs:element minOccurs="0" name="email" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

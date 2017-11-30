@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.oryx.apps</groupId>
+        <artifactId>root</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.oryx.apps</groupId>
+    <artifactId>oryx-cloud</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>${owner}: 1100-${artifactId}${nameSuffix}</name>
+    <packaging>pom</packaging>
+
+    <description>Oryx Cloud root</description>
+    <url></url>
+
+    <properties>
+    </properties>
+
+    <modules>
+        <module>MS001.Boot</module>
+        <module>UpgradeTask.Boot</module>
+        <module>Authentication.Boot</module>
+    </modules>
+
+    <licenses>
+        <license>
+            <name></name>
+            <url></url>
+            <distribution></distribution>
+        </license>
+    </licenses>
+
+    <inceptionYear>2016</inceptionYear>
+
+    <developers>
+        <developer>
+            <id>SMB</id>
+            <name>Sami MBARKI</name>
+            <email>sami.mbarki@oryx.org</email>
+            <organization>Oryx</organization>
+            <organizationUrl>http://www.oryx.org</organizationUrl>
+            <roles>
+                <role>PROJECT_MANAGER</role>
+                <role>DEVELOPPER</role>
+            </roles>
+            <timezone>+1</timezone>
+        </developer>
+    </developers>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

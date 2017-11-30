@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:sws="http://www.springframework.org/schema/web-services"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+							http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+							http://www.springframework.org/schema/web-services
+							http://www.springframework.org/schema/web-services/web-services-2.0.xsd
+							http://www.springframework.org/schema/context
+							http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+
+    <context:component-scan base-package="com.oryx.remote.service.entry"/>
+    <sws:annotation-driven/>
+
+    <!--
+        Oryx service bean
+    -->
+
+    <!-- MSG -->
+    <bean id="ErrorMessageService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
+        <property name="schemaCollection">
+            <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
+                <property name="inline" value="true"/>
+                <property name="xsds">
+                    <list>
+                        <value>schemas/model/enum.xsd</value>
+                        <value>schemas/model/system_msg_model.xsd</value>
+                        <value>schemas/model/operation.xsd</value>
+                        <value>schemas/operation/crud/system/msg/CrudOperationErrorMessage.xsd</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+        <property name="portTypeName" value="ErrorMessageService"/>
+        <property name="serviceName" value="ErrorMessageServices"/>
+        <property name="locationUri" value="/endpoint"/>
+    </bean>
+
+    <bean id="TranslationService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
+        <property name="schemaCollection">
+            <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
+                <property name="inline" value="true"/>
+                <property name="xsds">
+                    <list>
+                        <value>schemas/model/enum.xsd</value>
+                        <value>schemas/model/system_msg_model.xsd</value>
+                        <value>schemas/model/operation.xsd</value>
+                        <value>schemas/operation/crud/system/msg/CrudOperationTranslation.xsd</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+        <property name="portTypeName" value="TranslationService"/>
+        <property name="serviceName" value="TranslationServices"/>
+        <property name="locationUri" value="/endpoint"/>
+    </bean>
+
+    <!-- OSE -->
+    <bean id="AnnexService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
+        <property name="schemaCollection">
+            <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
+                <property name="inline" value="true"/>
+                <property name="xsds">
+                    <list>
+                        <value>schemas/model/enum.xsd</value>
+                        <value>schemas/model/system_ose_model.xsd</value>
+                        <value>schemas/model/operation.xsd</value>
+                        <value>schemas/operation/crud/system/ose/CrudOperationAnnex.xsd</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+        <property name="portTypeName" value="AnnexService"/>
+        <property name="serviceName" value="AnnexServices"/>
+        <property name="locationUri" value="/endpoint"/>
+    </bean>
+
+    <bean id="ParameterService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
+        <property name="schemaCollection">
+            <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
+                <property name="inline" value="true"/>
+                <property name="xsds">
+                    <list>
+                        <value>schemas/model/enum.xsd</value>
+                        <value>schemas/model/system_ose_model.xsd</value>
+                        <value>schemas/model/operation.xsd</value>
+                        <value>schemas/operation/crud/system/ose/CrudOperationParameter.xsd</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+        <property name="portTypeName" value="ParameterService"/>
+        <property name="serviceName" value="ParameterServices"/>
+        <property name="locationUri" value="/endpoint"/>
+    </bean>
+
+    <bean id="CodificationService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
+        <property name="schemaCollection">
+            <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
+                <property name="inline" value="true"/>
+                <property name="xsds">
+                    <list>
+                        <value>schemas/model/enum.xsd</value>
+                        <value>schemas/model/system_ose_model.xsd</value>
+                        <value>schemas/model/operation.xsd</value>
+                        <value>schemas/operation/crud/system/ose/CrudOperationCodification.xsd</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+        <property name="portTypeName" value="CodificationService"/>
+        <property name="serviceName" value="CodificationServices"/>
+        <property name="locationUri" value="/endpoint"/>
+    </bean>
+
+    <bean id="DomainService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
+        <property name="schemaCollection">
+            <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
+                <property name="inline" value="true"/>
+                <property name="xsds">
+                    <list>
+                        <value>schemas/model/enum.xsd</value>
+                        <value>schemas/model/system_ose_model.xsd</value>
+                        <value>schemas/model/operation.xsd</value>
+                        <value>schemas/operation/crud/system/ose/CrudOperationDomain.xsd</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+        <property name="portTypeName" value="DomainService"/>
+        <property name="serviceName" value="DomainServices"/>
+        <property name="locationUri" value="/endpoint"/>
+    </bean>
+
+
+    <bean id="FieldProcessParamService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition"
+          lazy-init="true">
+        <property name="schemaCollection">
+            <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
+                <property name="inline" value="true"/>
+                <property name="xsds">
+                    <list>
+                        <value>schemas/model/enum.xsd</value>
+                        <value>schemas/model/system_ose_model.xsd</value>
+                        <value>schemas/model/operation.xsd</value>
+                        <value>schemas/operation/crud/system/ose/CrudOperationFieldProcessParam.xsd</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+        <property name="portTypeName" value="FieldProcessParamService"/>
+        <property name="serviceName" value="FieldProcessParamServices"/>
+        <property name="locationUri" value="/endpoint"/>
+    </bean>
+
+    <bean id="MenuService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
+        <property name="schemaCollection">
+            <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
+                <property name="inline" value="true"/>
+                <property name="xsds">
+                    <list>
+                        <value>schemas/model/enum.xsd</value>
+                        <value>schemas/model/system_ose_model.xsd</value>
+                        <value>schemas/model/operation.xsd</value>
+                        <value>schemas/operation/crud/system/ose/CrudOperationMenu.xsd</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+        <property name="portTypeName" value="MenuService"/>
+        <property name="serviceName" value="MenuServices"/>
+        <property name="locationUri" value="/endpoint"/>
+    </bean>
+
+    <bean id="RoleInfoService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
+        <property name="schemaCollection">
+            <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
+                <property name="inline" value="true"/>
+                <property name="xsds">
+                    <list>
+                        <value>schemas/model/enum.xsd</value>
+                        <value>schemas/model/system_ose_model.xsd</value>
+                        <value>schemas/model/operation.xsd</value>
+                        <value>schemas/operation/crud/system/ose/CrudOperationRoleInfo.xsd</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+        <property name="portTypeName" value="RoleInfoService"/>
+        <property name="serviceName" value="RoleInfoServices"/>
+        <property name="locationUri" value="/endpoint"/>
+    </bean>
+
+    <bean id="TaskService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
+        <property name="schemaCollection">
+            <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
+                <property name="inline" value="true"/>
+                <property name="xsds">
+                    <list>
+                        <value>schemas/model/enum.xsd</value>
+                        <value>schemas/model/system_ose_model.xsd</value>
+                        <value>schemas/model/operation.xsd</value>
+                        <value>schemas/operation/crud/system/ose/CrudOperationTask.xsd</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+        <property name="portTypeName" value="TaskService"/>
+        <property name="serviceName" value="TaskServices"/>
+        <property name="locationUri" value="/endpoint"/>
+    </bean>
+
+
+    <bean id="UpgradesService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
+        <property name="schemaCollection">
+            <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
+                <property name="inline" value="true"/>
+                <property name="xsds">
+                    <list>
+                        <value>schemas/model/enum.xsd</value>
+                        <value>schemas/model/system_ose_model.xsd</value>
+                        <value>schemas/model/operation.xsd</value>
+                        <value>schemas/operation/crud/system/ose/CrudOperationUpgrades.xsd</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+        <property name="portTypeName" value="UpgradesService"/>
+        <property name="serviceName" value="UpgradesServices"/>
+        <property name="locationUri" value="/endpoint"/>
+    </bean>
+
+    <bean id="UserService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
+        <property name="schemaCollection">
+            <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
+                <property name="inline" value="true"/>
+                <property name="xsds">
+                    <list>
+                        <value>schemas/model/enum.xsd</value>
+                        <value>schemas/model/system_ose_model.xsd</value>
+                        <value>schemas/model/operation.xsd</value>
+                        <value>schemas/operation/crud/system/ose/CrudOperationUser.xsd</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+        <property name="portTypeName" value="UserService"/>
+        <property name="serviceName" value="UserServices"/>
+        <property name="locationUri" value="/endpoint"/>
+    </bean>
+
+    <!-- REF -->
+    <bean id="AdressService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
+        <property name="schemaCollection">
+            <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
+                <property name="inline" value="true"/>
+                <property name="xsds">
+                    <list>
+                        <value>schemas/model/enum.xsd</value>
+                        <value>schemas/model/system_ref_model.xsd</value>
+                        <value>schemas/model/operation.xsd</value>
+                        <value>schemas/operation/crud/system/ref/CrudOperationAdress.xsd</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+        <property name="portTypeName" value="AdressService"/>
+        <property name="serviceName" value="AdressServices"/>
+        <property name="locationUri" value="/endpoint"/>
+    </bean>
+
+    <bean id="ContactService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
+        <property name="schemaCollection">
+            <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
+                <property name="inline" value="true"/>
+                <property name="xsds">
+                    <list>
+                        <value>schemas/model/enum.xsd</value>
+                        <value>schemas/model/system_ref_model.xsd</value>
+                        <value>schemas/model/operation.xsd</value>
+                        <value>schemas/operation/crud/system/ref/CrudOperationContact.xsd</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+        <property name="portTypeName" value="ContactService"/>
+        <property name="serviceName" value="ContactServices"/>
+        <property name="locationUri" value="/endpoint"/>
+    </bean>
+
+    <bean id="CountryService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
+        <property name="schemaCollection">
+            <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
+                <property name="inline" value="true"/>
+                <property name="xsds">
+                    <list>
+                        <value>schemas/model/enum.xsd</value>
+                        <value>schemas/model/system_ref_model.xsd</value>
+                        <value>schemas/model/operation.xsd</value>
+                        <value>schemas/operation/crud/system/ref/CrudOperationCountry.xsd</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+        <property name="portTypeName" value="CountryService"/>
+        <property name="serviceName" value="CountryServices"/>
+        <property name="locationUri" value="/endpoint"/>
+    </bean>
+
+    <bean id="PersonService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
+        <property name="schemaCollection">
+            <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
+                <property name="inline" value="true"/>
+                <property name="xsds">
+                    <list>
+                        <value>schemas/model/enum.xsd</value>
+                        <value>schemas/model/system_ref_model.xsd</value>
+                        <value>schemas/model/operation.xsd</value>
+                        <value>schemas/operation/crud/system/ref/CrudOperationPerson.xsd</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+        <property name="portTypeName" value="PersonService"/>
+        <property name="serviceName" value="PersonServices"/>
+        <property name="locationUri" value="/endpoint"/>
+    </bean>
+
+    <bean id="StateService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
+        <property name="schemaCollection">
+            <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
+                <property name="inline" value="true"/>
+                <property name="xsds">
+                    <list>
+                        <value>schemas/model/enum.xsd</value>
+                        <value>schemas/model/system_ref_model.xsd</value>
+                        <value>schemas/model/operation.xsd</value>
+                        <value>schemas/operation/crud/system/ref/CrudOperationState.xsd</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+        <property name="portTypeName" value="StateService"/>
+        <property name="serviceName" value="StateServices"/>
+        <property name="locationUri" value="/endpoint"/>
+    </bean>
+
+    <bean id="ThirdPartyService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
+        <property name="schemaCollection">
+            <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
+                <property name="inline" value="true"/>
+                <property name="xsds">
+                    <list>
+                        <value>schemas/model/enum.xsd</value>
+                        <value>schemas/model/system_ref_model.xsd</value>
+                        <value>schemas/model/operation.xsd</value>
+                        <value>schemas/operation/crud/system/ref/CrudOperationThirdParty.xsd</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+        <property name="portTypeName" value="ThirdPartyService"/>
+        <property name="serviceName" value="ThirdPartyServices"/>
+        <property name="locationUri" value="/endpoint"/>
+    </bean>
+
+    <bean id="UidService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
+        <property name="schemaCollection">
+            <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
+                <property name="inline" value="true"/>
+                <property name="xsds">
+                    <list>
+                        <value>schemas/model/enum.xsd</value>
+                        <value>schemas/model/system_ref_model.xsd</value>
+                        <value>schemas/model/operation.xsd</value>
+                        <value>schemas/operation/crud/system/ref/CrudOperationUid.xsd</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+        <property name="portTypeName" value="UidService"/>
+        <property name="serviceName" value="UidServices"/>
+        <property name="locationUri" value="/endpoint"/>
+    </bean>
+
+    <!-- VIEWS -->
+    <bean id="UserViewService" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition" lazy-init="true">
+        <property name="schemaCollection">
+            <bean class="org.springframework.xml.xsd.commons.CommonsXsdSchemaCollection">
+                <property name="inline" value="true"/>
+                <property name="xsds">
+                    <list>
+                        <value>schemas/model/enum.xsd</value>
+                        <value>schemas/model/system_ose_view.xsd</value>
+                        <value>schemas/model/operation.xsd</value>
+                        <value>schemas/operation/view/system/ose/ViewOperationUserView.xsd</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+        <property name="portTypeName" value="UserViewService"/>
+        <property name="serviceName" value="UserViewServices"/>
+        <property name="locationUri" value="/endpoint"/>
+    </bean>
+</beans>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:enum="http://enum.element.webservice.remote.oryx.com" xmlns:model="http://model.element.webservice.remote.oryx.com" xmlns:system_ref_model="http://ref.system.model.element.webservice.remote.oryx.com" targetNamespace="http://ref.system.model.element.webservice.remote.oryx.com" version="1.0">
+
+  <xs:import namespace="http://enum.element.webservice.remote.oryx.com" schemaLocation="enum.xsd"/>
+
+  <xs:import namespace="http://model.element.webservice.remote.oryx.com" schemaLocation="model.xsd"/>
+
+  <xs:complexType name="XmlPerson">
+    <xs:annotation>
+      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="model:XmlCancelableAndTracable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="defaultUid" type="xs:string"/>
+          <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+          <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+          <xs:element minOccurs="0" name="defaultPhoneNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="civility" type="enum:XmlEnumCivility"/>
+          <xs:element minOccurs="0" name="gender" type="enum:XmlEnumGender"/>
+          <xs:element minOccurs="0" name="language" type="enum:XmlEnumLanguage"/>
+          <xs:element minOccurs="0" name="birthDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="birthPlace" type="system_ref_model:XmlState"/>
+          <xs:element minOccurs="0" name="birthPlaceId" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="uidSet" nillable="true" type="system_ref_model:XmlUid"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="uidIds" nillable="true" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="adressSet" nillable="true" type="system_ref_model:XmlAdress"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="adressIds" nillable="true" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="contactSet" nillable="true" type="system_ref_model:XmlContact"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="contactIds" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="XmlState">
+    <xs:annotation>
+      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="model:XmlCancelableAndTracable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="countryName" type="xs:string"/>
+          <xs:element minOccurs="0" name="country" type="system_ref_model:XmlCountry"/>
+          <xs:element minOccurs="0" name="countryId" type="xs:string"/>
+          <xs:element minOccurs="0" name="postalCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="latitude" type="xs:double"/>
+          <xs:element minOccurs="0" name="longitude" type="xs:double"/>
+          <xs:element minOccurs="0" name="altitude" type="xs:double"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="XmlCountry">
+    <xs:annotation>
+      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="model:XmlCancelableAndTracable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="countryCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="language" type="xs:string"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="polCapital" type="system_ref_model:XmlState"/>
+          <xs:element minOccurs="0" name="polCapitalId" type="xs:string"/>
+          <xs:element minOccurs="0" name="ecoCapital" type="system_ref_model:XmlState"/>
+          <xs:element minOccurs="0" name="ecoCapitalId" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="XmlUid">
+    <xs:annotation>
+      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="model:XmlCancelableAndTracable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="uidType" type="enum:XmlEnumUID"/>
+          <xs:element minOccurs="0" name="uid" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="XmlAdress">
+    <xs:annotation>
+      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="model:XmlCancelableAndTracable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="country" type="system_ref_model:XmlCountry"/>
+          <xs:element minOccurs="0" name="countryId" type="xs:string"/>
+          <xs:element minOccurs="0" name="state" type="system_ref_model:XmlState"/>
+          <xs:element minOccurs="0" name="stateId" type="xs:string"/>
+          <xs:element minOccurs="0" name="street" type="xs:string"/>
+          <xs:element name="latitude" type="xs:double"/>
+          <xs:element name="longitude" type="xs:double"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="XmlContact">
+    <xs:complexContent>
+      <xs:extension base="model:XmlCancelableAndTracable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="contactType" type="enum:XmlEnumContact"/>
+          <xs:element minOccurs="0" name="value" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="XmlThirdParty">
+    <xs:annotation>
+      <xs:documentation><![CDATA[Created by 241180 on 09/01/2017.]]></xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="model:XmlCancelableAndTracable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="reference" type="xs:string"/>
+          <xs:element minOccurs="0" name="descriptionTextArea" type="xs:string"/>
+          <xs:element minOccurs="0" name="language" type="enum:XmlEnumLanguage"/>
+          <xs:element minOccurs="0" name="defaultPhoneNumber" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="adressSet" nillable="true" type="system_ref_model:XmlAdress"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="adressIds" nillable="true" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="contactSet" nillable="true" type="system_ref_model:XmlContact"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="contactIds" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:enum="http://enum.element.webservice.remote.oryx.com" xmlns:operation="http://operation.element.webservice.remote.oryx.com" targetNamespace="http://operation.element.webservice.remote.oryx.com" version="1.0">
+
+  <xs:import namespace="http://enum.element.webservice.remote.oryx.com" schemaLocation="enum.xsd"/>
+
+  <xs:complexType name="XmlOperationDescIn">
+    <xs:complexContent>
+      <xs:extension base="operation:AbstractXmlServiceRequestDesc">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="objectType" type="enum:XmlEnumObjectType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType abstract="true" name="AbstractXmlServiceRequestDesc">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="operation" type="enum:XmlEnumServiceOperation"/>
+      <xs:element minOccurs="0" name="msg" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="XmlOperationDescOut">
+    <xs:complexContent>
+      <xs:extension base="operation:AbstractXmlServiceResponseDesc">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="objectType" type="enum:XmlEnumObjectType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType abstract="true" name="AbstractXmlServiceResponseDesc">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="operation" type="enum:XmlEnumServiceOperation"/>
+      <xs:element minOccurs="0" name="errCode" type="xs:int"/>
+      <xs:element minOccurs="0" name="msg" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="XmlAuthentification">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="accesskey" type="xs:string"/>
+      <xs:element minOccurs="0" name="domainCode" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
