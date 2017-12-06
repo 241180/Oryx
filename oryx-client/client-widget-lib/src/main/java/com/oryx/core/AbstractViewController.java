@@ -6,13 +6,13 @@ import com.oryx.core.bundle.IBundle;
 /**
  * Created by smbarki on 06/12/2017.
  */
-public abstract class AbstractViewController implements IViewController {
+public abstract class AbstractViewController<E> implements IViewController<E> {
     private Class<? extends IBundle> constantBundle;
-    private IViewContext viewContext;
-    private IViewDescriptor viewDescriptor;
-    private IViewModel viewModel;
+    private IViewContext<E> viewContext;
+    private IViewDescriptor<E> viewDescriptor;
+    private IViewModel<E> viewModel;
 
-    public AbstractViewController(IViewContext viewContext, IViewDescriptor viewDescriptor, IViewModel viewModel) {
+    public AbstractViewController(IViewContext<E> viewContext, IViewDescriptor<E> viewDescriptor, IViewModel<E> viewModel) {
         this.constantBundle = constantBundle;
         this.viewContext = viewContext;
         this.viewDescriptor = viewDescriptor;
@@ -21,7 +21,7 @@ public abstract class AbstractViewController implements IViewController {
         initilizeMVC();
     }
 
-    public AbstractViewController(IViewDescriptor viewDescriptor, IViewModel viewModel) {
+    public AbstractViewController(IViewDescriptor<E> viewDescriptor, IViewModel<E> viewModel) {
         this(null, viewDescriptor, viewModel);
     }
 
@@ -43,27 +43,27 @@ public abstract class AbstractViewController implements IViewController {
         this.constantBundle = constantBundle;
     }
 
-    public IViewDescriptor getViewDescriptor() {
+    public IViewDescriptor<E> getViewDescriptor() {
         return viewDescriptor;
     }
 
-    public void setViewDescriptor(IViewDescriptor viewDescriptor) {
+    public void setViewDescriptor(IViewDescriptor<E> viewDescriptor) {
         this.viewDescriptor = viewDescriptor;
     }
 
-    public IViewContext getViewContext() {
+    public IViewContext<E> getViewContext() {
         return viewContext;
     }
 
-    public void setViewContext(IViewContext viewContext) {
+    public void setViewContext(IViewContext<E> viewContext) {
         this.viewContext = viewContext;
     }
 
-    public IViewModel getViewModel() {
+    public IViewModel<E> getViewModel() {
         return viewModel;
     }
 
-    public void setViewModel(IViewModel viewModel) {
+    public void setViewModel(IViewModel<E> viewModel) {
         this.viewModel = viewModel;
     }
 }

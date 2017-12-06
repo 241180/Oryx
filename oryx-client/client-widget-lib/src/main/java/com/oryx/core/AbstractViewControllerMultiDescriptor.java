@@ -9,10 +9,10 @@ import java.util.List;
 /**
  * Created by smbarki on 06/12/2017.
  */
-public abstract class AbstractViewControllerMultiDescriptor extends AbstractViewController {
+public abstract class AbstractViewControllerMultiDescriptor<E> extends AbstractViewController<E> {
     private List<IViewDescriptor> viewDescriptorList;
 
-    public AbstractViewControllerMultiDescriptor(IViewContext viewContext, IViewModel viewModel, IViewDescriptor... viewDescriptors) {
+    public AbstractViewControllerMultiDescriptor(IViewContext<E> viewContext, IViewModel<E> viewModel, IViewDescriptor<E>... viewDescriptors) {
         super(viewContext, null, viewModel);
         this.viewDescriptorList = new ArrayList<IViewDescriptor>();
         for(IViewDescriptor viewDescriptor:viewDescriptors){
@@ -22,7 +22,7 @@ public abstract class AbstractViewControllerMultiDescriptor extends AbstractView
         }
     }
 
-    public AbstractViewControllerMultiDescriptor(IViewModel viewModel, IViewDescriptor... viewDescriptors) {
+    public AbstractViewControllerMultiDescriptor(IViewModel<E> viewModel, IViewDescriptor<E>... viewDescriptors) {
         this(null, viewModel, viewDescriptors);
     }
 }
