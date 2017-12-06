@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oryx-binder" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oryx-bundle" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oryx-client" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oryx-client/client-boot" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oryx-client/client-core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oryx-client/client-module" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oryx-client/client-ui" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oryx-client/client-widget-lib" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oryx-client/client-ws-bridge" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oryx-cloud" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oryx-cloud/Authentication.Boot" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oryx-cloud/MS001.Boot" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oryx-cloud/UpgradeTask.Boot" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oryx-crypt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oryx-dashboard" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oryx-javajin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oryx-migration" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oryx-module" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oryx-portal" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oryx-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oryx-server-ws-gen" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oryx-server/server-boot" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oryx-server/server-core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oryx-shared" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oryx-vaadin-extended" charset="UTF-8" />
+  </component>
+</project>

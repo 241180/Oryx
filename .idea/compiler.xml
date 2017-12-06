@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+      <entry name="!?*.aj" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="1101-Authentication" />
+        <module name="1102-MS001" />
+        <module name="1103-UpgradeTask" />
+        <module name="client-boot" />
+        <module name="client-core" />
+        <module name="client-module" />
+        <module name="client-ui" />
+        <module name="client-widget-lib" />
+        <module name="client-ws-bridge" />
+        <module name="oryx-binder" />
+        <module name="oryx-bundle" />
+        <module name="oryx-crypt" />
+        <module name="oryx-dashboard" />
+        <module name="oryx-javajin" />
+        <module name="oryx-migration" />
+        <module name="oryx-module" />
+        <module name="oryx-portal" />
+        <module name="oryx-server-ws-gen" />
+        <module name="oryx-vaadin-extended" />
+        <module name="server-boot" />
+        <module name="server-core" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="1101-Authentication" target="1.8" />
+      <module name="1102-MS001" target="1.8" />
+      <module name="1103-UpgradeTask" target="1.8" />
+      <module name="client-boot" target="1.8" />
+      <module name="client-core" target="1.8" />
+      <module name="client-module" target="1.8" />
+      <module name="client-ui" target="1.8" />
+      <module name="client-widget-lib" target="1.8" />
+      <module name="client-ws-bridge" target="1.8" />
+      <module name="oryx-binder" target="1.8" />
+      <module name="oryx-bundle" target="1.8" />
+      <module name="oryx-client" target="1.8" />
+      <module name="oryx-cloud" target="1.8" />
+      <module name="oryx-crypt" target="1.8" />
+      <module name="oryx-dashboard" target="1.8" />
+      <module name="oryx-javajin" target="1.8" />
+      <module name="oryx-migration" target="1.8" />
+      <module name="oryx-module" target="1.8" />
+      <module name="oryx-portal" target="1.6" />
+      <module name="oryx-server" target="1.8" />
+      <module name="oryx-server-ws-gen" target="1.8" />
+      <module name="oryx-shared" target="1.8" />
+      <module name="oryx-vaadin-extended" target="1.8" />
+      <module name="root" target="1.8" />
+      <module name="server-boot" target="1.8" />
+      <module name="server-core" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
