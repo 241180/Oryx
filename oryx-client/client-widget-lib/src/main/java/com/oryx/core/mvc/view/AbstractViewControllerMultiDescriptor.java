@@ -1,7 +1,4 @@
-package com.oryx.core;
-
-import com.oryx.core.annotation.capable.IBundleCapable;
-import com.oryx.core.bundle.IBundle;
+package com.oryx.core.mvc.view;
 
 import java.util.ArrayList;
 import java.util.List;

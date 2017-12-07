@@ -1,4 +1,4 @@
-package com.oryx.core;
+package com.oryx.core.mvc.view;
 
 /**
  * Created by smbarki on 06/12/2017.

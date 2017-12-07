@@ -1,9 +1,9 @@
-package com.oryx.core;
+package com.oryx.core.mvc.view;
 
 /**
  * Created by smbarki on 06/12/2017.
  */
-public abstract class AbstractViewContext<E> implements IViewContext<E> {
+public abstract class AbstractViewModel<E> implements IViewModel<E> {
     private IViewController<E> viewController;
 
     @Override

@@ -1,4 +1,4 @@
-package com.oryx.core;
+package com.oryx.core.mvc.view;
 
 import com.oryx.core.annotation.capable.IBundleCapable;
 import com.oryx.core.bundle.IBundle;
