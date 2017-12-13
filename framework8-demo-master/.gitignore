@@ -1,0 +1,35 @@
+db/
+# Eclipse
+.classpath
+.project
+.settings
+
+# /
+/.cvsignore
+/work
+
+# /tests/
+/tests/junit*.properties
+
+# /bin/
+/bin
+
+# Mac
+*.DS_Store
+
+# build result folders
+*/result
+result
+target/
+
+.sass-cache
+phantomjsdriver.log
+
+*.iml
+.idea
+
+*/.checkstyle
+
+*.scss.cache
+
+*/error-screenshots/*

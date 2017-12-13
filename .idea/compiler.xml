@@ -25,6 +25,7 @@
         <module name="1101-Authentication" />
         <module name="1102-MS001" />
         <module name="1103-UpgradeTask" />
+        <module name="addressbook" />
         <module name="client-boot" />
         <module name="client-core" />
         <module name="client-module" />
@@ -41,20 +42,32 @@
         <module name="oryx-portal" />
         <module name="oryx-server-ws-gen" />
         <module name="oryx-vaadin-extended" />
+        <module name="quicktickets-dashboard" />
+        <module name="registration-form" />
+        <module name="rest-dataprovider-demo" />
+        <module name="rest-json-dataprovider-demo" />
         <module name="server-boot" />
         <module name="server-core" />
+        <module name="spring-demo-backend" />
+        <module name="spring-demo-ui" />
+        <module name="test-util" />
+        <module name="todomvc" />
+        <module name="tree-database-example" />
+        <module name="v-guice-example" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="1101-Authentication" target="1.8" />
       <module name="1102-MS001" target="1.8" />
       <module name="1103-UpgradeTask" target="1.8" />
+      <module name="addressbook" target="1.8" />
       <module name="client-boot" target="1.8" />
       <module name="client-core" target="1.8" />
       <module name="client-module" target="1.8" />
       <module name="client-ui" target="1.8" />
       <module name="client-widget-lib" target="1.8" />
       <module name="client-ws-bridge" target="1.8" />
+      <module name="framework8-demo" target="1.8" />
       <module name="oryx-binder" target="1.8" />
       <module name="oryx-bundle" target="1.8" />
       <module name="oryx-client" target="1.8" />
@@ -69,9 +82,20 @@
       <module name="oryx-server-ws-gen" target="1.8" />
       <module name="oryx-shared" target="1.8" />
       <module name="oryx-vaadin-extended" target="1.8" />
+      <module name="quicktickets-dashboard" target="1.8" />
+      <module name="registration-form" target="1.8" />
+      <module name="rest-dataprovider-demo" target="1.8" />
+      <module name="rest-json-dataprovider-demo" target="1.8" />
       <module name="root" target="1.8" />
       <module name="server-boot" target="1.8" />
       <module name="server-core" target="1.8" />
+      <module name="spring-demo" target="1.8" />
+      <module name="spring-demo-backend" target="1.8" />
+      <module name="spring-demo-ui" target="1.8" />
+      <module name="test-util" target="1.8" />
+      <module name="todomvc" target="1.8" />
+      <module name="tree-database-example" target="1.8" />
+      <module name="v-guice-example" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
