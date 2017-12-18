@@ -27,7 +27,6 @@ import org.vaadin.viritin.layouts.MVerticalLayout;
 @Theme("valo")
 @SpringUI
 public class MainUI extends UI {
-    static final int PAGESIZE = 45;
     private static final long serialVersionUID = 1L;
     PersonRepository repo;
     PersonForm personForm;

@@ -1,13 +1,16 @@
 package com.oryx.core.mvc.view;
 
 import com.oryx.core.annotation.capable.IBundleCapable;
+import com.oryx.core.annotation.capable.ICustomCapable;
 import com.oryx.core.bundle.IBundle;
+import com.vaadin.ui.Layout;
 
 /**
  * Created by smbarki on 06/12/2017.
  */
 public abstract class AbstractViewController<E> implements IViewController<E> {
     private Class<? extends IBundle> constantBundle;
+    private String customLayout;
     private IViewContext<E> viewContext;
     private IViewDescriptor<E> viewDescriptor;
     private IViewModel<E> viewModel;
@@ -32,11 +35,24 @@ public abstract class AbstractViewController<E> implements IViewController<E> {
     }
 
     public Class<? extends IBundle> getConstantBundle() {
-        if (constantBundle != null) {
+        if (this.constantBundle != null) {
             this.constantBundle = IBundleCapable.getBundleInterface(this);
         }
 
-        return constantBundle;
+        return this.constantBundle;
+    }
+
+    public String getCustomLayout() {
+        if (this.customLayout != null) {
+            this.customLayout = ICustomCapable.getHtmlFileName(this);
+        }
+
+        return this.customLayout;
+    }
+
+    @Override
+    public Layout getLayout(){
+        return this.getViewDescriptor()!=null?this.getViewDescriptor().getLayout():null;
     }
 
     public void setConstantBundle(Class<? extends IBundle> constantBundle) {

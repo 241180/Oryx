@@ -6,7 +6,7 @@ import com.oryx.core.mvc.view.AbstractViewController;
 /**
  * Created by SAMI on 07/12/2017.
  */
-public abstract class BeanDialogController<E> extends AbstractDialogController<E> implements IBeanDialogController<E> {
+public class BeanDialogController<E> extends AbstractDialogController<E> implements IBeanDialogController<E> {
     public BeanDialogController(IBeanDialogContext<E> viewContext, IBeanDialogDescriptor<E> viewDescriptor, IBeanDialogModel<E> viewModel) {
         super(viewContext, viewDescriptor, viewModel);
     }
