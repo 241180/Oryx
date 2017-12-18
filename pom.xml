@@ -138,6 +138,9 @@
         <module>oryx-cloud</module>
         <module>oryx-migration</module>
         <module>oryx-server-ws-gen</module>
+        <module>v-guice-example-master</module>
+        <module>framework8-demo-master</module>
+        <module>dashboard-demo-8.0</module>
     </modules>
 
     <licenses>

@@ -5,12 +5,14 @@
       <module fileurl="file://$PROJECT_DIR$/oryx-cloud/Authentication.Boot/1101-Authentication.iml" filepath="$PROJECT_DIR$/oryx-cloud/Authentication.Boot/1101-Authentication.iml" />
       <module fileurl="file://$PROJECT_DIR$/oryx-cloud/MS001.Boot/1102-MS001.iml" filepath="$PROJECT_DIR$/oryx-cloud/MS001.Boot/1102-MS001.iml" />
       <module fileurl="file://$PROJECT_DIR$/oryx-cloud/UpgradeTask.Boot/1103-UpgradeTask.iml" filepath="$PROJECT_DIR$/oryx-cloud/UpgradeTask.Boot/1103-UpgradeTask.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework8-demo-master/addressbook/addressbook.iml" filepath="$PROJECT_DIR$/framework8-demo-master/addressbook/addressbook.iml" />
       <module fileurl="file://$PROJECT_DIR$/oryx-client/client-boot/client-boot.iml" filepath="$PROJECT_DIR$/oryx-client/client-boot/client-boot.iml" />
       <module fileurl="file://$PROJECT_DIR$/oryx-client/client-core/client-core.iml" filepath="$PROJECT_DIR$/oryx-client/client-core/client-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/oryx-client/client-module/client-module.iml" filepath="$PROJECT_DIR$/oryx-client/client-module/client-module.iml" />
       <module fileurl="file://$PROJECT_DIR$/oryx-client/client-ui/client-ui.iml" filepath="$PROJECT_DIR$/oryx-client/client-ui/client-ui.iml" />
       <module fileurl="file://$PROJECT_DIR$/oryx-client/client-widget-lib/client-widget-lib.iml" filepath="$PROJECT_DIR$/oryx-client/client-widget-lib/client-widget-lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/oryx-client/client-ws-bridge/client-ws-bridge.iml" filepath="$PROJECT_DIR$/oryx-client/client-ws-bridge/client-ws-bridge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework8-demo-master/framework8-demo.iml" filepath="$PROJECT_DIR$/framework8-demo-master/framework8-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/oryx-binder/oryx-binder.iml" filepath="$PROJECT_DIR$/oryx-binder/oryx-binder.iml" />
       <module fileurl="file://$PROJECT_DIR$/oryx-bundle/oryx-bundle.iml" filepath="$PROJECT_DIR$/oryx-bundle/oryx-bundle.iml" />
       <module fileurl="file://$PROJECT_DIR$/oryx-client/oryx-client.iml" filepath="$PROJECT_DIR$/oryx-client/oryx-client.iml" />
@@ -25,9 +27,20 @@
       <module fileurl="file://$PROJECT_DIR$/oryx-server-ws-gen/oryx-server-ws-gen.iml" filepath="$PROJECT_DIR$/oryx-server-ws-gen/oryx-server-ws-gen.iml" />
       <module fileurl="file://$PROJECT_DIR$/oryx-shared/oryx-shared.iml" filepath="$PROJECT_DIR$/oryx-shared/oryx-shared.iml" />
       <module fileurl="file://$PROJECT_DIR$/oryx-vaadin-extended/oryx-vaadin-extended.iml" filepath="$PROJECT_DIR$/oryx-vaadin-extended/oryx-vaadin-extended.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dashboard-demo-8.0/quicktickets-dashboard.iml" filepath="$PROJECT_DIR$/dashboard-demo-8.0/quicktickets-dashboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework8-demo-master/registration-form/registration-form.iml" filepath="$PROJECT_DIR$/framework8-demo-master/registration-form/registration-form.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework8-demo-master/rest-dataprovider-demo/rest-dataprovider-demo.iml" filepath="$PROJECT_DIR$/framework8-demo-master/rest-dataprovider-demo/rest-dataprovider-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework8-demo-master/rest-json-dataprovider-demo/rest-json-dataprovider-demo.iml" filepath="$PROJECT_DIR$/framework8-demo-master/rest-json-dataprovider-demo/rest-json-dataprovider-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/root.iml" filepath="$PROJECT_DIR$/root.iml" />
       <module fileurl="file://$PROJECT_DIR$/oryx-server/server-boot/server-boot.iml" filepath="$PROJECT_DIR$/oryx-server/server-boot/server-boot.iml" />
       <module fileurl="file://$PROJECT_DIR$/oryx-server/server-core/server-core.iml" filepath="$PROJECT_DIR$/oryx-server/server-core/server-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework8-demo-master/spring-demo/spring-demo.iml" filepath="$PROJECT_DIR$/framework8-demo-master/spring-demo/spring-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework8-demo-master/spring-demo/spring-demo-backend/spring-demo-backend.iml" filepath="$PROJECT_DIR$/framework8-demo-master/spring-demo/spring-demo-backend/spring-demo-backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework8-demo-master/spring-demo/spring-demo-ui/spring-demo-ui.iml" filepath="$PROJECT_DIR$/framework8-demo-master/spring-demo/spring-demo-ui/spring-demo-ui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework8-demo-master/test-util/test-util.iml" filepath="$PROJECT_DIR$/framework8-demo-master/test-util/test-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework8-demo-master/todomvc/todomvc.iml" filepath="$PROJECT_DIR$/framework8-demo-master/todomvc/todomvc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework8-demo-master/tree-database-example/tree-database-example.iml" filepath="$PROJECT_DIR$/framework8-demo-master/tree-database-example/tree-database-example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/v-guice-example-master/v-guice-example.iml" filepath="$PROJECT_DIR$/v-guice-example-master/v-guice-example.iml" />
     </modules>
   </component>
 </project>
